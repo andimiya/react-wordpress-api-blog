@@ -35,25 +35,40 @@ class BlogRollContainer extends Component {
   render() {
     // console.log(this.state.posts, 'all posts data');
     return (
-      <div className="blog-roll-container-outer">
-        <div className="blog-roll-container-inner">
-          {this.state.posts.map(data => {
-            return (
-              <div className="blog-item-container">
-                <h2 className="post-title">
-                  {data.title.rendered}
-                </h2>
-                <div
-                  className="post-excerpt"
-                  dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }}
-                />
-                <div className="post-date">
-                  {moment(data.date).format('MMM DD, YYYY')}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      <div className="home">
+        <section class="blog-heading">
+          <div class="blog-container" />
+        </section>
+        <section class="blog-roll">
+          <div class="container">
+            <ul class="post-list">
+              {this.state.posts.map(data => {
+                return (
+                  <div className="blog-item-container">
+                    <li>
+                      <h2 className="post-title">
+                        {data.title.rendered}
+                      </h2>
+                      <div className="post-preview">
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: data.excerpt.rendered
+                          }}
+                        />
+                      </div>
+                      <li className="post-date">
+                        {moment(data.date).format('MMM DD, YYYY')}
+                      </li>
+                      <li className="post-author">
+                        {data.author}
+                      </li>
+                    </li>
+                  </div>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
       </div>
     );
   }

@@ -1,0 +1,374 @@
+/**
+ * Site header
+ */
+
+.header {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid $grey-color-light;
+  background: $white;
+  z-index: 2;
+  @include min-breakpoint(small) {
+    padding: 1.75rem 0;
+  }
+
+  @include min-breakpoint(large) {
+    padding: 2rem 0;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    overflow: hidden;
+
+    @include min-breakpoint(small) {
+      justify-content: space-between;
+    }
+  }
+}
+
+.navigation {
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: -15px;
+  line-height: 13.5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include min-breakpoint(small) {
+    justify-content: flex-end;
+    padding-bottom: 0;
+    align-content: center;
+    align-items: center;
+    margin: 0;
+    width: initial;
+  }
+}
+
+.navigation__link {
+  @extend %highlight;
+  margin: 0 0.75rem;
+  @include font-size(9px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-sizing: border-box;
+  color: $text-color;
+  white-space: nowrap;
+
+  @include min-breakpoint(small) {
+    margin: 0 0.875rem;
+    @include font-size(10.5px);
+    letter-spacing: 1.75px;
+  }
+
+  @include min-breakpoint(large) {
+    margin: 0 1rem;
+    @include font-size(12px);
+    letter-spacing: 2px;
+  }
+}
+
+.header__logo {
+  height: 45px;
+  width: 45px;
+  margin-bottom: 1.125rem;
+
+  @include min-breakpoint(small) {
+    height: 52.5px;
+    width: 52.5px;
+    margin: 0;
+  }
+
+  @include min-breakpoint(large) {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+.blog-letters {
+  display: block;
+  max-width: 16.5rem;
+  margin: 0 auto;
+}
+
+.blog-heading {
+  background-color: $white;
+  padding: 4.5rem 0 5rem;
+}
+
+.blog-roll {
+  padding: 4rem 0;
+  width: 100%;
+  box-shadow: 0 0.125rem 2rem 0 rgba(0, 0, 0, .1);
+}
+
+/**
+ * Site footer
+ */
+
+.site-footer {
+  padding: $spacing-unit 0;
+  background-color: $white;
+}
+
+.footer-heading {
+  @include relative-font-size(1.125);
+  margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-col-wrapper {
+  @include relative-font-size(0.9375);
+  color: $grey-color;
+  margin-left: -$spacing-unit / 2;
+  @extend %clearfix;
+}
+
+.footer-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 {
+  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+  width: calc(35% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-2 {
+  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+  width: calc(20% - (#{$spacing-unit} / 2));
+}
+
+.footer-col-3 {
+  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+  width: calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@include media-query($on-palm) {
+  .footer-col {
+    float: none;
+    width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 2rem 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.container {
+  max-width: 52.5rem;
+  width: 90%;
+  margin: 0 auto;
+
+  @include min-breakpoint(large) {
+    max-width: 60rem;
+  }
+}
+
+.footer__copyright {
+  color: $text-color;
+  letter-spacing: .125rem;
+  font-size: .8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: .7;
+  line-height: 1.5rem;
+}
+
+/**
+ * Page content
+ */
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    padding-bottom: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 2;
+    border-bottom: 1px solid $grey-color-light;
+  }
+}
+
+.post-meta {
+  color: $grey-color;
+  margin-top: 16px;
+  padding-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2.25px;
+  @include font-size(10px);
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: ' ';
+    width: 30%;
+    height: 1px;
+    background: $grey-color-light;
+    margin: auto;
+    top: 0;
+    left: 0;
+  }
+
+  li {
+    display: inline-block;
+    &:nth-child(2):before {
+      content: '\2022';
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+.post-link {
+  display: block;
+  color: $blue;
+  @include relative-font-size(2);
+}
+
+/**
+ * Posts
+ */
+
+.roll-link {
+  &:before {
+    content: '\2190 \ ';
+  }
+}
+
+.post-header {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit 0;
+}
+
+.post-title {
+  color: $blue;
+  padding: $spacing-unit * 3 0 $spacing-unit / 2 0;
+  margin: 0;
+  @include relative-font-size(2.625);
+  line-height: 1.25;
+
+  @include media-query($on-laptop) {
+    @include relative-font-size(2.25);
+  }
+}
+
+.post-cta {
+  @extend %highlight;
+  @include font-size(14px);
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit * 2 0;
+  @include relative-font-size(1.25);
+  line-height: 2.25rem;
+  box-shadow: 0 0.125rem 2rem 0 rgba(0, 0, 0, .1);
+  overflow: hidden;
+  word-wrap: break-word;
+  list-style: inside;
+
+  @include min-breakpoint(small) {
+    list-style: none;
+    @include relative-font-size(1.5);
+    line-height: 2.75rem;
+
+    ol li {
+      margin-left: 1.5rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding-top: 3rem;
+  }
+
+  h2 {
+    @include relative-font-size(2);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.75);
+    }
+  }
+
+  h3 {
+    @include relative-font-size(1.625);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.375);
+    }
+  }
+
+  h4 {
+    @include relative-font-size(1.25);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.125);
+    }
+  }
+
+  blockquote {
+    @include relative-font-size(2);
+    margin: 3rem 0;
+    letter-spacing: 0;
+    padding-left: 1rem;
+
+    @include min-breakpoint(small) {
+      padding-left: 2rem;
+    }
+  }
+
+  img {
+    max-width: 50rem;
+    display: block;
+    margin: auto;
+    padding-top: 1rem;
+  }
+
+  img + em {
+    font-size: 1rem;
+    line-height: 2rem;
+    display: block;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+}
