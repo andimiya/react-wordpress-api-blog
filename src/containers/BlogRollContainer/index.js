@@ -33,21 +33,22 @@ class BlogRollContainer extends Component {
   }
 
   render() {
-    // console.log(this.state.posts, 'all posts data');
     return (
-      <div className="home">
-        <section class="blog-heading">
-          <div class="blog-container" />
-        </section>
-        <section class="blog-roll">
-          <div class="container">
-            <ul class="post-list">
-              {this.state.posts.map(data => {
-                return (
-                  <div className="blog-item-container">
+      <main className="page-content" aria-label="Content">
+        <div className="home">
+          <section className="blog-heading">
+            <div className="blog-container">
+              Blog Wavy Lettering
+            </div>
+          </section>
+          <section className="blog-roll">
+            <div className="container">
+              <ul className="post-list">
+                {this.state.posts.map(data => {
+                  return (
                     <li>
-                      <h2 className="post-title">
-                        {data.title.rendered}
+                      <h2>
+                        <a className="post-link" href="/">{data.title.rendered}</a>
                       </h2>
                       <div className="post-preview">
                         <p
@@ -56,20 +57,27 @@ class BlogRollContainer extends Component {
                           }}
                         />
                       </div>
-                      <li className="post-date">
-                        {moment(data.date).format('MMM DD, YYYY')}
-                      </li>
-                      <li className="post-author">
-                        {data.author}
-                      </li>
+                      <a className="post-cta" href="/">
+                        Read more
+                      </a>
+                      <div className="post-meta">
+                        <ul>
+                          <li className="post-date">
+                            {moment(data.date).format('MMM DD, YYYY')}
+                          </li>
+                          <li className="post-author">
+                            {data.author}
+                          </li>
+                        </ul>
+                      </div>
                     </li>
-                  </div>
-                );
-              })}
-            </ul>
-          </div>
-        </section>
-      </div>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+        </div>
+      </main>
     );
   }
 }
