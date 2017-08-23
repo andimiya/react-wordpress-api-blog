@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class BlogRollContainer extends Component {
   constructor(props) {
@@ -46,7 +47,9 @@ class BlogRollContainer extends Component {
                   return (
                     <li>
                       <h2>
-                        <a className="post-link" href="/">{data.title.rendered}</a>
+                        <Link className="post-link" to={`articles/${data.slug}`}>
+                          {data.title.rendered}
+                        </Link>
                       </h2>
                       <div className="post-preview">
                         <p

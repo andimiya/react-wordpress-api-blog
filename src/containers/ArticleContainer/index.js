@@ -3,6 +3,7 @@ import $ from 'jquery';
 import moment from 'moment';
 
 class ArticleContainer extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +14,11 @@ class ArticleContainer extends Component {
       datePublished: null,
       slug: null,
     };
+
   }
 
   componentDidMount() {
+
     const postId = this.props.location.pathname.split('/').pop();
     console.log(postId, 'postid');
     return $.get('http://ec2-52-90-58-181.compute-1.amazonaws.com/wp-json/wp/v2/posts').then(items => {
@@ -36,14 +39,13 @@ class ArticleContainer extends Component {
   }
 
   render() {
-    console.log(this.state, 'state');
+
+    console.log(this.state.articleBody, 'state');
 
     return (
-      <div>
       <main className="page-content" aria-label="Content">
         <article className="post">
           <header className="post-header">
-
             <div className="container">
               <a className="roll-link" href="/">
                 Back to blog posts{this.state.articleTitle}
@@ -70,7 +72,6 @@ class ArticleContainer extends Component {
             </div>
         </article>
       </main>
-      </div>
     );
   }
 }
