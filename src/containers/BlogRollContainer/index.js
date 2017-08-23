@@ -14,14 +14,14 @@ class BlogRollContainer extends Component {
   }
 
   getAllPosts() {
-    $.get('http://localhost:8080/wp-json/wp/v2/posts').then(data => {
+    $.get('http://ec2-52-90-58-181.compute-1.amazonaws.com/wp-json/wp/v2/posts').then(data => {
       console.log(data, 'posts');
       this.setState({ posts: data });
     });
   }
 
   getAllUsers() {
-    $.get('http://localhost:8080/wp-json/wp/v2/users').then(data => {
+    $.get('http://ec2-52-90-58-181.compute-1.amazonaws.com/wp-json/wp/v2/users').then(data => {
       console.log(data, 'users');
       this.setState({ users: data });
     });
