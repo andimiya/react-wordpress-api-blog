@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class ArticleContainer extends Component {
 
@@ -26,8 +27,8 @@ class ArticleContainer extends Component {
       for (var i = 0; i < items.length; i++) {
         if (items[i].slug === postId) {
           return this.setState({
-            articleBody: items[i].content,
-            articleTitle: items[i].title,
+            articleBody: items[i].content.rendered,
+            articleTitle: items[i].title.rendered,
             articleExcerpt: items[i].exerpt,
             author: items[i].author,
             datePublished: moment(items[i].date).format('LL'),
@@ -40,21 +41,24 @@ class ArticleContainer extends Component {
 
   render() {
 
-    console.log(this.state.articleBody, 'state');
+    console.log(this.state.title, 'state');
 
     return (
       <main className="page-content" aria-label="Content">
         <article className="post">
           <header className="post-header">
             <div className="container">
-              <a className="roll-link" href="/">
-                Back to blog posts{this.state.articleTitle}
-              </a>
-                <h1 className="post-title">
-                  {this.state.articleTitle}
-                </h1>
+              <Link to="/" className="roll-link">
+                Back to blog posts
+              </Link>
+              <h1 className="post-title">
+                {this.state.articleTitle}
+              </h1>
                 <p className="post-meta">
-                  {this.state.datePublished}
+                  <time itemProp="datePublished">
+                    {this.state.datePublished}
+                  </time>
+                  •
                   <span itemProp="author">
                     {this.state.author}
                   </span>

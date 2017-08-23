@@ -11,7 +11,7 @@ const App = () =>
       <div className="app-layout">
         <TopNav />
         <Route exact path="/" component={BlogRollContainer} />
-        <Route exact path="/article/:slug" component={ArticleContainer} />
+        <Route exact path="/articles/:slug" component={ArticleContainer} />
       </div>
     </Router>
   </div>;
