@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import BlogRollContainer from './containers/BlogRollContainer';
 import ArticleContainer from './containers/ArticleContainer';
 import TopNav from './components/TopNav';
+import Footer from './components/Footer';
 import './scss/App.css';
 
 const App = () =>
@@ -12,6 +13,7 @@ const App = () =>
         <TopNav />
         <Route exact path="/" component={BlogRollContainer} />
         <Route exact path="/articles/:slug" component={ArticleContainer} />
+        <Footer />
       </div>
     </Router>
   </div>;
